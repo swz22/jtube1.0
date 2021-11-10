@@ -1,0 +1,36 @@
+
+<div class="container">
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  />
+
+  <h1 style="margin-top: 180px">Upload Your Own Videos!</h1>
+
+  <form [formGroup]="fileUploadForm" (ngSubmit)="onFormSubmit()">
+    <div>
+      <div class="col-sm-6">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="customFile"
+            name="uploadedMedia"
+            (change)="onFileSelect($event)"
+            #UploadFileInput
+          />
+          <label class="custom-file-label" for="customFile">{{ fileInputLabel || "Choose File" }} </label>
+          <div style="margin-top: 20px; font-size: 15px;"> Only .mp4 and .m4v files are supported!</div>
+        </div>
+      </div>
+      <div class="col-sm-6" style="display:flex; flex-direction: column; width: 168px">
+        <button class="btn btn-primary" style="margin-top: 90px" [routerLink]="['/collection']">
+          View Collection
+        </button>
+        <button class="btn btn-primary" type="submit" style="margin-top: 12px">
+          Upload
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
